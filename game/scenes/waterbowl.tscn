@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://whmtv24wyuvh"]
+
+[ext_resource type="Script" uid="uid://b8gobvx3bcxys" path="res://scenes/waterbowl.gd" id="1_pdcje"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_shgx5"]
+height = 0.15
+radius = 0.25
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6jb07"]
+top_radius = 0.2
+bottom_radius = 0.23
+height = 0.15
+
+[node name="waterbowl" type="StaticBody3D"]
+script = ExtResource("1_pdcje")
+
+[node name="col" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_shgx5")
+
+[node name="mesh" type="MeshInstance3D" parent="col"]
+mesh = SubResource("CylinderMesh_6jb07")
+skeleton = NodePath("../../..")

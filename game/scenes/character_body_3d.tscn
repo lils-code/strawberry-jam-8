@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7lu3nhpdwxgf"]
+
+[ext_resource type="Script" uid="uid://2hdrihw7uean" path="res://scripts/character_body_3d.gd" id="1_iuxmc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gjyek"]
+height = 0.5
+radius = 0.3
+
+[node name="character" type="CharacterBody3D"]
+script = ExtResource("1_iuxmc")
+
+[node name="col" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_gjyek")
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15638, 0)
+
+[node name="ui" type="Control" parent="camera"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="interact_ray" type="RayCast3D" parent="camera"]
+target_position = Vector3(0, 0, -1)
